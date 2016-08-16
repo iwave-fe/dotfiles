@@ -91,17 +91,17 @@ endif
 filetype off
 syntax on
 
-" neocompecache
-"  autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
-  let g:neocomplcache_enable_at_startup = 1
-  let g:neocomplcache_enable_camel_case_completion = 1
-  let g:neocomplcache_enable_underbar_completion = 1
-  let g:neocomplcache_smart_case = 1
-  let g:neocomplcache_min_syntax_length = 3
-  let g:neocomplcache_manual_completion_start_length = 5
-  let g:neocomplcache_caching_percent_in_statusline = 1
-  let g:neocomplcache_enable_skip_completion = 1
-  let g:neocomplcache_skip_input_time = '0.5'
+" neocomplete
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_camel_case_completion = 1
+  let g:neocomplete#enable_underbar_completion = 1
+  let g:neocomplete#smart_case = 1
+  let g:neocomplete#max_list = 20
+  let g:neocomplete#syntax#min_keyword_length = 3
+  let g:neocomplete#manual_completion_start_length = 5
+  let g:neocomplete#caching_percent_in_statusline = 1
+  let g:neocomplete#enable_skip_completion = 1
+  let g:neocomplete#skip_input_time = '0.5'
 
 " syntastic
   let g:syntastic_check_on_open = 1
