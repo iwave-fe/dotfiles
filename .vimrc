@@ -56,6 +56,7 @@ nmap <C-n> :bn<CR>
 nmap <ESC><ESC> :noh<CR>
 nmap <C-a> ^
 nmap <C-e> $
+nmap <C-h> :Unite tab<CR>
 
 "----------------------------------------
 " 各種プラグイン設定
