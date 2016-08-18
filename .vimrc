@@ -28,7 +28,8 @@ set clipboard=unnamed,autoselect
 set backspace=indent,eol,start
 " ステータスライン
 set laststatus=2
-set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P\
+" set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P\
+set t_Co=256
 " 検索
 set hlsearch
 set incsearch
@@ -56,7 +57,6 @@ nmap <C-n> :bn<CR>
 nmap <ESC><ESC> :noh<CR>
 nmap <C-a> ^
 nmap <C-e> $
-nmap <C-h> :Unite tab<CR>
 
 "----------------------------------------
 " 各種プラグイン設定
@@ -66,16 +66,15 @@ if &compatible
 endif
 set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin(expand('~/.cache/dein'))
+" call dein#begin(expand('~/.cache/dein'))
+call dein#begin(expand('~/.vim/dein'))
 
 " call dein#add('/.vim/dein/')
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/neomru.vim')
-
 call dein#add('scrooloose/syntastic')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-endwise')
@@ -118,6 +117,7 @@ syntax on
   let g:syntastic_javascript_checkers=['jshint']
   let g:syntastic_ruby_checkers=['rubocop']
   let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'php'] }
+
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
@@ -125,16 +125,20 @@ syntax on
 " vim-indent-guides
 " let g:indent_guides_enable_on_vim_startup = 1
 
- " unite.vim
- " 入力モードで開始
- " let g:unite_enable_start_insert=1
- noremap <C-P> :Unite buffer<CR>
- noremap <C-N> :Unite -buffer-name=file file<CR>
- " 今開いているファイルのディレクトリ
- noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
- " ESC 2回で終了
- au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
- au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+" unite.vim
+" 入力モードで開始
+" let g:unite_enable_start_insert=1
+noremap <C-h> :Unite tab<CR>
+noremap <C-P> :Unite buffer<CR>
+noremap <C-N> :Unite -buffer-name=file file<CR>
+" 今開いているファイルのディレクトリ
+noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
+" ESC 2回で終了
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+" lightline
+  let g:lightline = { 'colorscheme': 'wombat', }
 
 " netrw を有効化(Vim同梱のプラグイン)
 filetype plugin indent on
