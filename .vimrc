@@ -1,8 +1,8 @@
 "=============================================================================
 "    Description: .vimrc 個人設定
 "         Author: iwave-fe
-"  Last Modified: 2016-08-12 18:00
-"        Version: 0.00
+"  Last Modified: 2016-08-23 14:00
+"        Version: 0.01
 "=============================================================================
 
 "----------------------------------------
@@ -11,7 +11,7 @@
 " タブ関連
 set expandtab
 set smarttab
-" タブサイズはファイル毎に設定したいが、有効にならない
+" タブサイズ(基本)
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -112,7 +112,6 @@ syntax on
   let g:syntastic_enable_highlighting = 1
   let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
   let g:syntastic_php_phpcs_args = '-l'
-  " let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
   let g:syntastic_php_checkers=['php']
   let g:syntastic_javascript_checkers=['jshint']
   let g:syntastic_ruby_checkers=['rubocop']
@@ -144,3 +143,8 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 filetype plugin indent on
 filetype indent on
 filetype on
+
+" タブの切替
+if has("autocmd")
+  autocmd FileType php setlocal ts=4 sw=4 sts=4
+endif
