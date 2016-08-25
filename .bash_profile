@@ -4,11 +4,9 @@ if [ -f ~/.bachrc ]; then
   . ~/.bashrc
 fi
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:/opt/local/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 export PATH
-
-alias vim='/opt/local/bin/vim'
 
 alias grep='grep --color'
 alias df='df -h'
