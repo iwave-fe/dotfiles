@@ -80,6 +80,7 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-endwise')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('flyinshadow/php_localvarcheck.vim')
 call dein#add('itchyny/lightline.vim')
 
 call dein#end()
@@ -116,6 +117,10 @@ syntax on
   let g:syntastic_javascript_checkers=['jshint']
   let g:syntastic_ruby_checkers=['rubocop']
   let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'php'] }
+
+" php_localvarcheck
+  let g:php_localvarcheck_enable = 1
+  let g:php_localvarcheck_global = 0
 
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
