@@ -6,7 +6,7 @@
 "=============================================================================
 
 "----------------------------------------
-"追加定義：iwave-fe
+" 追加定義：iwave-fe
 "----------------------------------------
 " タブ関連
 set expandtab
@@ -61,9 +61,9 @@ nmap <C-e> $
 "----------------------------------------
 " 各種プラグイン設定
 "----------------------------------------
-if &compatible
+"if &compatible
   set nocompatible               " Be iMproved
-endif
+"endif
 set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " call dein#begin(expand('~/.cache/dein'))
@@ -82,6 +82,17 @@ call dein#add('tomtom/tcomment_vim')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('flyinshadow/php_localvarcheck.vim')
 call dein#add('itchyny/lightline.vim')
+call dein#add('pangloss/vim-javascript')
+call dein#add('slim-template/vim-slim')
+" call dein#add('Shougo/deoplete.nvim')
+" call dein#add('carlitux/deoplete-ternjs')
+" call dein#add('uplus/deoplete-solargraph')
+" call dein#add('shawncplus/phpcomplete.vim')
+
+" if !has('nvim')
+"   call dein#add('roxma/nvim-yarp')
+"   call dein#add('roxma/vim-hug-neovim-rpc')
+" endif
 
 call dein#end()
 
@@ -91,6 +102,9 @@ endif
 
 filetype off
 syntax on
+
+" deoplate
+"   let g:deoplate#enable_at_startup = 1
 
 " neocomplete
   let g:neocomplete#enable_at_startup = 1
@@ -105,18 +119,20 @@ syntax on
   let g:neocomplete#skip_input_time = '0.5'
 
 " syntastic
-  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_open = 0
+  let g:syntastic_check_on_save = 1
   let g:syntastic_auto_jump = 1
   let g:syntastic_enable_signs = 1
   let g:syntastic_echo_current_error = 1
   let g:syntastic_auto_loc_list = 2
   let g:syntastic_enable_highlighting = 1
-  let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
+  " let g:syntastic_php_phpcs_args = '--report=csv --standard=CakePHP'
   let g:syntastic_php_phpcs_args = '-l'
   let g:syntastic_php_checkers=['php']
-  let g:syntastic_javascript_checkers=['jshint']
+  " let g:syntastic_javascript_checkers=['jshint']
+  let g:syntastic_javascript_checkers=['eslint']
   let g:syntastic_ruby_checkers=['rubocop']
-  let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'php'] }
+  let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'php', 'javascript'] }
 
 " php_localvarcheck
   let g:php_localvarcheck_enable = 1
@@ -140,6 +156,10 @@ noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
 " ESC 2回で終了
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+" vueファイルのシンタックスハイライト
+au BufNewFile,BufRead *.{html,html,vue*} set filetype=html
+" slimファイルのシンタックスハイライト
+au BufNewFile,BufRead *.{slim*} set filetype=slim
 
 " lightline
   let g:lightline = { 'colorscheme': 'wombat', }
@@ -153,3 +173,11 @@ filetype on
 if has("autocmd")
   autocmd FileType php setlocal ts=4 sw=4 sts=4
 endif
+
+set background=dark
+" colorscheme
+" colorscheme apprentice
+colorscheme hybrid
+" colorscheme night-owl
+" colorscheme iceberg
+" colorscheme solarized
