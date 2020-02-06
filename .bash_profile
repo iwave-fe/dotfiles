@@ -28,10 +28,12 @@ eval "$(rbenv init -)"
 alias grep='grep --color'
 alias df='df -h'
 
-alias ls='gls --color=auto'
-alias ll='gls -al --color=auto'
+alias ls='ls -FG'
+alias ll='ls -alFG'
 alias cp='cp -i'
 alias mv='mv -i'
+alias ssh='/usr/local/bin/ssh-change-theme'
+alias dockerbash='/usr/local/bin/docker-bash-change-theme'
 # brewのwarning回避(brew実行時、pyenvのパスが衝突することを回避)
 alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
 

@@ -1,0 +1,11 @@
+#!/bin/bash
+set_profile() {
+  /usr/bin/osascript -e "tell application \"Terminal\" to set current settings of first window to settings set \"$1\""
+}
+if [[ "$@" != '' ]]; then
+  set_profile "Solarized Light ansi"
+  docker exec -it -e COLUMN=128 -e LINES=64 -e TERM=xterm $@ bash --login
+  set_profile "Iceberg"
+else
+  docker exec -it -e COLUMN=128 -e LINES=64 -e TERM=xterm $@ bash --login
+fi

@@ -1,0 +1,15 @@
+#!/bin/bash
+set_profile() {
+  /usr/bin/osascript -e "tell application \"Terminal\" to set current settings of first window to settings set \"$1\""
+}
+if [[ "$@" == sms-staging ]]; then
+  set_profile "Novel"
+  ssh $@
+  set_profile "Iceberg"
+elif [[ "$@" == sms-prod ]]; then
+  set_profile "Red Sans"
+  ssh $@
+  set_profile "Iceberg"
+else
+  ssh $@
+fi
