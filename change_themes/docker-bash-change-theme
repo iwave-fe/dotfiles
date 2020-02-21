@@ -7,5 +7,5 @@ if [[ "$@" != '' ]]; then
   docker exec -it -e COLUMN=128 -e LINES=64 -e TERM=xterm $@ bash --login
   set_profile "Iceberg"
 else
-  docker exec -it -e COLUMN=128 -e LINES=64 -e TERM=xterm $@ bash --login
+  echo "dockerbash {container-name}"
 fi

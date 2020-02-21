@@ -32,10 +32,14 @@ alias ls='ls -FG'
 alias ll='ls -alFG'
 alias cp='cp -i'
 alias mv='mv -i'
+# ssh接続時、configの名称でターミナルのプロファイルを変更
 alias ssh='/usr/local/bin/ssh-change-theme'
+# dockerコンテナ接続時、ターミナルのプロファイルを変更
 alias dockerbash='/usr/local/bin/docker-bash-change-theme'
 # brewのwarning回避(brew実行時、pyenvのパスが衝突することを回避)
 alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
+# docker ps 表示編集
+alias dockerpsf='docker ps --format  "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
 
 HISTIGNORE=history
 
