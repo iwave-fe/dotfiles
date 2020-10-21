@@ -40,6 +40,7 @@ alias dockerbash='/usr/local/bin/docker-bash-change-theme'
 alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
 # docker ps 表示編集
 alias dockerpsf='docker ps --format  "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias dockerpsa='docker ps -a --format  "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
 
 HISTIGNORE=history
 
