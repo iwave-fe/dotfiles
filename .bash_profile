@@ -4,7 +4,7 @@ if [ -f ~/.bachrc ]; then
   . ~/.bashrc
 fi
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/bin
 
 export PATH
 
@@ -47,3 +47,4 @@ HISTIGNORE=history
 # プロンプト
 # デフォルト ¥h:¥W ¥u¥$ (ホスト名、現在のディレクトリ、ユーザ名)
 PS1='\[\033[0;34m\][\W/]\[\033[0;35m\]\n\$ \[\e[0m\]'
+export PATH="/usr/local/opt/gettext/bin:$PATH"
